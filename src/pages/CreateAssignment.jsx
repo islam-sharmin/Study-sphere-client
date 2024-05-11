@@ -3,6 +3,7 @@ import { AuthContext } from "../providers/AuthProvider";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import { FaRegCalendarAlt } from "react-icons/fa";
+import Swal from "sweetalert2";
 
 
 const CreateAssignment = () => {
@@ -10,7 +11,7 @@ const CreateAssignment = () => {
     const { user } = useContext(AuthContext);
     const [startDate, setStartDate] = useState(null);
 
-    const handleAddCraft = event => {
+    const handleCreateAssignment = event => {
         event.preventDefault();
 
         const form = event.target;
@@ -22,19 +23,37 @@ const CreateAssignment = () => {
         const photo = form.photo.value;
         const email = form.email.value;
 
+        const newAssignment = { title, description, level, marks, date, photo, email }
+        console.log(newAssignment);
 
-        const newCraft = { title, description, level, marks, date, photo, email }
-        console.log(newCraft);
-
+        // send data to the server
+        fetch('http://localhost:5000/assignments', {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body:JSON.stringify(newAssignment)
+        })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data);
+                if(data.insertedId){
+                    Swal.fire({
+                        title: 'Success!',
+                        text: 'Assignment Created Successfully',
+                        icon: 'success',
+                        confirmButtonText: 'Awesome'
+                      })
+                }
+            })
         form.reset();
     }
 
     return (
         <div>
-            <h2 className="text-white p-5 bg-orange-400 rounded-lg font-bold text-2xl text-center w-full ">Add Craft</h2>
+            <h2 className="text-white p-5 bg-yellow-600 rounded-lg font-bold text-2xl text-center w-full ">Create Assignment</h2>
             <div className="card shrink-0 w-full bg-base-100">
-
-                <form onSubmit={handleAddCraft} className="card-body">
+                <form onSubmit={handleCreateAssignment} className="card-body">
 
                     <div className="form-control flex-1">
                         <label className="label">
@@ -76,7 +95,7 @@ const CreateAssignment = () => {
                             </label>
                             {/* <input name="date" type="text" placeholder="date" className="input input-bordered" required /> */}
                             <label className="input input-bordered relative" required>
-                                <DatePicker selected={startDate} onChange={(date) => setStartDate(date)} />
+                                <DatePicker name="date" selected={startDate} onChange={(date) => setStartDate(date)} />
                                 <span className="absolute top-4 right-2">
                                 <FaRegCalendarAlt />
                                 </span>
@@ -100,7 +119,7 @@ const CreateAssignment = () => {
                     </div>
 
                     <div className="form-control mt-6">
-                        <input type="submit" className="btn text-white bg-orange-600" value="ADD CRAFT" />
+                        <input type="submit" className="btn text-white bg-yellow-600" value="CREATE ASSIGNMENT" />
                     </div>
                 </form>
             </div>
