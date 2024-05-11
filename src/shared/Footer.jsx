@@ -1,12 +1,16 @@
 import { FaFacebook, FaGithub, FaLinkedin, FaTwitter } from "react-icons/fa";
+import logo from '../../public/StudyLogo.png';
 
 
 const Footer = () => {
     return (
-        <div className="mt-8">
+        <div className="mt-14">
             <footer className="footer p-10 bg-base-200 text-base-content">
                 <nav className="space-y-2">
-                    <h6 className="text-2xl text-yellow-600 font-bold">Travel Pro</h6>
+                    <div className="flex items-center">
+                    <img src={logo} alt="" className="w-[60px] h-[50px]" />
+                    <h6 className="text-2xl text-yellow-600 font-bold">Study Sphere</h6>
+                    </div>
                     <p className="">Explore. Discover. Plan. Book. Travel. Enjoy. Share.</p>
                     <div className="flex gap-5 items-center">
                         <p className="text-2xl"><FaFacebook /></p>
