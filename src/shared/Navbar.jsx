@@ -65,7 +65,7 @@ const Navbar = () => {
                 </label>
                 {user ? (
                     <div className="flex items-center gap-3">
-                        <div className="dropdown">
+                        <div className="dropdown dropdown-end">
                             <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
                                 <div className="w-10 rounded-full">
                                 <img
