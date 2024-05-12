@@ -111,7 +111,7 @@ const CreateAssignment = () => {
                     </div>
 
                     <div className="form-control mt-6">
-                        <input type="submit" className="btn text-white bg-yellow-600" value="CREATE ASSIGNMENT" />
+                        <input type="submit" className="btn text-black bg-yellow-500" value="CREATE ASSIGNMENT" />
                     </div>
                 </form>
             </div>

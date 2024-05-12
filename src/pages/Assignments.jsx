@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { FaChevronDown } from "react-icons/fa";
+import { Link } from "react-router-dom";
 
 
 const Assignments = () => {
@@ -37,7 +38,7 @@ const Assignments = () => {
                                     <p>Level: {assignment.level}</p>
                                 </div>
                                 <div className="card-actions gap-4 mt-3">
-                                    <button className="btn btn-success text-white">Details</button>
+                                    <Link to={`/details/${assignment._id}`}><button className="btn btn-success text-white">Details</button></Link>
                                     <button className="btn btn-error text-white">Delete</button>
                                     <button className="btn btn-warning text-white">Update</button>
                                 </div>

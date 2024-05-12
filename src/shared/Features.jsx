@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 
 
 const Features = () => {
@@ -30,7 +31,7 @@ const Features = () => {
                                     <p>Level: {assignment.level}</p>
                                 </div>
                                 <div className="card-actions gap-4 mt-3">
-                                    <button className="btn btn-success text-white">Details</button>
+                                    <Link to={`/details/${assignment._id}`}><button className="btn btn-success text-white">Details</button></Link>
                                 </div>
                             </div>
                         </div>
