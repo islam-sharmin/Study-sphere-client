@@ -35,6 +35,7 @@ const Navbar = () => {
         <li><NavLink to='/' className={({ isActive }) => isActive ? 'font-bold text-yellow-500 underline text-base' : 'text-base'}>Home</NavLink></li>
         <li><NavLink to='/assignments' className={({ isActive }) => isActive ? 'font-bold text-yellow-500 underline text-base' : 'text-base'}>Assignments</NavLink></li>
         <li><NavLink to='/createAssignment' className={({ isActive }) => isActive ? 'font-bold text-yellow-500 underline text-base' : 'text-base'}>Create Assignment</NavLink></li>
+        <li><NavLink to='/pending' className={({ isActive }) => isActive ? 'font-bold text-yellow-500 underline text-base' : 'text-base'}>Pending Assignment</NavLink></li>
     </>
 
     return (
