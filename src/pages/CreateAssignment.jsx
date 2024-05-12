@@ -21,7 +21,7 @@ const CreateAssignment = () => {
         const marks = form.marks.value;
         const date = form.date.value;
         const photo = form.photo.value;
-        const email = form.email.value;
+        const email = user?.email;
 
         const newAssignment = { title, description, level, marks, date, photo, email }
         console.log(newAssignment);
@@ -51,10 +51,10 @@ const CreateAssignment = () => {
 
     return (
         <div>
-            <h2 className="text-white p-5 bg-yellow-600 rounded-lg font-bold text-2xl text-center w-full ">Create Assignment</h2>
+            <h2 className="mt-8 underline text-yellow-600 font-bold text-2xl text-center">Create Assignment</h2>
             <div className="card shrink-0 w-full bg-base-100">
                 <form onSubmit={handleCreateAssignment} className="card-body">
-
+                    {/* title description */}
                     <div className="form-control flex-1">
                         <label className="label">
                             <span className="label-text font-semibold text-yellow-600">Title</span>
@@ -71,7 +71,7 @@ const CreateAssignment = () => {
 
 
                     <div className="flex flex-col lg:flex-row gap-5">
-                        {/* row 3 rating and customization */}
+                        {/* level marks and date */}
                         <div className="form-control flex-1">
                             <label className="label">
                                 <span className="label-text font-semibold text-yellow-600">Assignment difficulty Level</span>
@@ -93,7 +93,6 @@ const CreateAssignment = () => {
                             <label className="label">
                                 <span className="label-text font-semibold text-yellow-600">Due Date</span>
                             </label>
-                            {/* <input name="date" type="text" placeholder="date" className="input input-bordered" required /> */}
                             <label className="input input-bordered relative" required>
                                 <DatePicker name="date" selected={startDate} onChange={(date) => setStartDate(date)} />
                                 <span className="absolute top-4 right-2">
@@ -103,19 +102,12 @@ const CreateAssignment = () => {
                         </div>
                     </div>
 
-                    {/* short description */}
+                    {/* image url */}
                     <div className="form-control flex-1">
                         <label className="label">
                             <span className="label-text font-semibold text-yellow-600">Thumbnail Image URL</span>
                         </label>
                         <input name="photo" type="text" placeholder="Image URL" className="input input-bordered" required />
-                    </div>
-
-                    <div className="form-control flex-1">
-                        <label className="label">
-                            <span className="label-text font-semibold text-yellow-600">Email</span>
-                        </label>
-                        <input name="email" type="text" defaultValue={user?.email} className="input input-bordered" required />
                     </div>
 
                     <div className="form-control mt-6">

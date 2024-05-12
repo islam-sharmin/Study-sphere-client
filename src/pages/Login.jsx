@@ -73,32 +73,31 @@ const Login = () => {
     }
 
     return (
-        <div className='flex items-center justify-center'>
-            <div className=''>
+        <div className='flex items-center flex-col md:flex-row justify-center'>
+            <div className='flex-1'>
                 <img src={loginImg} alt="" className='w-[600px]' />
             </div>
-            <div className='md:w-3/4 lg:w-1/2 mt-5'>
+            <div className='flex-1 mt-5'>
                 <h2 className="text-3xl text-center font-bold text-yellow-600">Please Login</h2>
-                <form className="card-body mx-auto">
+                <form onSubmit={handleLogin} className="w-full md:w-[90%] mx-auto">
                     <div className="form-control">
                         <label className="label">
-                            <span className="label-text">Email</span>
+                            <span className="label-text text-yellow-600 font-semibold">Email</span>
                         </label>
-                        <input type="email" name="email" placeholder="Enter your email" className="input input-bordered" required />
+                        <input type="email" name="email" placeholder="email" className="input input-bordered" required />
                     </div>
                     <div className="form-control">
                         <label className="label">
-                            <span className="label-text">Password</span>
+                            <span className="label-text text-yellow-600 font-semibold">Password</span>
                         </label>
-                        <input type="password" name="password" placeholder="Enter your password" className="input input-bordered" required />
-                        <label className="label">
-                            <a href="#" className="label-text-alt link link-hover">Forgot password?</a>
-                        </label>
+                        <input type="password" name="password" placeholder="password" className="input input-bordered" required />
                     </div>
                     <div className="form-control mt-6">
-                        <button onClick={handleLogin} className="btn bg-yellow-500 text-black">Login</button>
+                        <button className="btn bg-yellow-500 text-black">Login</button>
                     </div>
+                </form>
 
+                <div className='w-full md:w-[90%] mx-auto'>
                     <div className="divider">OR</div>
 
                     <div className="form-control">
@@ -107,8 +106,9 @@ const Login = () => {
                     <div className="form-control mt-3">
                         <button onClick={handleGitHubLogIn} className="btn bg-yellow-500 text-black flex items-center gap-2"> <FiGithub /> Login with GitHub</button>
                     </div>
-                </form>
-                <p className="text-center mb-4">Do not have an account. Please <Link className="text-yellow-700 font-bold" to="/signup">Sign Up</Link></p>
+                </div>
+
+                <p className="text-center mb-4 mt-2">Do not have an account. Please <Link className="text-yellow-700 font-bold" to="/signup">Sign Up</Link></p>
                 <ToastContainer />
             </div>
         </div>
