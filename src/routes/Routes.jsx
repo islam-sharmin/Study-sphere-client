@@ -10,6 +10,8 @@ import Details from "../pages/Details";
 import TakeAssignments from "../pages/TakeAssignments";
 import PendingAssignment from "../pages/PendingAssignment";
 import Update from "../pages/Update";
+import AttemptAssignment from "../pages/AttemptAssignment";
+import SubmittedAssignment from "../pages/SubmittedAssignment";
 
 
 const router = createBrowserRouter([
@@ -55,6 +57,15 @@ const router = createBrowserRouter([
                 path: '/update/:id',
                 element: <Update></Update>,
                 loader: ({params}) => fetch(`http://localhost:5000/assignments/${params.id}`)
+            },
+            {
+                path: '/attemptAssignment',
+                element: <PrivateRoutes><AttemptAssignment></AttemptAssignment></PrivateRoutes>
+            },
+            {
+                path: '/submittedAssignment/:id',
+                element: <PrivateRoutes><SubmittedAssignment></SubmittedAssignment></PrivateRoutes>,
+                loader: ({params}) => fetch(`http://localhost:5000/quiz/${params.id}`)
             }
         ]
       },

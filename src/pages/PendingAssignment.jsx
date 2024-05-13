@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 
 
 const PendingAssignment = () => {
@@ -31,7 +32,7 @@ const PendingAssignment = () => {
                                 <td>{pendingAssignment.title}</td>
                                 <td>{pendingAssignment.marks}</td>
                                 <td>{pendingAssignment.name}</td>
-                                <td className="btn bg-yellow-500 text-black">Give Mark</td>
+                                <Link to={`/submittedAssignment/${pendingAssignment._id}`}><td className="btn bg-yellow-500 text-black mt-2 mb-2">Give Mark</td></Link>
                             </tr>)
                         }
                     </tbody>

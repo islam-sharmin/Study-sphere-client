@@ -1,14 +1,14 @@
 import { useContext } from "react";
 import { AuthContext } from "../providers/AuthProvider";
 import Swal from "sweetalert2";
-import { useLoaderData } from "react-router-dom";
+import { useLoaderData, useNavigate } from "react-router-dom";
 
 
 const TakeAssignments = () => {
 
     const {user} = useContext(AuthContext);
     const assignments = useLoaderData();
-
+    const navigate = useNavigate();
 
     const handleTask = event => {
         event.preventDefault();
@@ -19,11 +19,12 @@ const TakeAssignments = () => {
         const name = user?.displayName;
         const title = assignments.title;
         const marks = assignments.marks;
+        const photo = assignments.photo;
         const obtainMarks = '';
         const feedback = '';
         const status = 'pending';
 
-        const task = {link, note, email, name, title, marks, obtainMarks, feedback, status}
+        const task = {link, note, email, name, title, marks, photo, obtainMarks, feedback, status}
         console.log(task);
 
         // send data to the server
@@ -45,6 +46,7 @@ const TakeAssignments = () => {
                         confirmButtonText: 'Awesome'
                       })
                 }
+                navigate('/assignments');
             })
         form.reset();
     }
@@ -61,7 +63,7 @@ const TakeAssignments = () => {
                 </div>
                 <div className="form-control flex-1">
                     <label className="label">
-                        <span className="label-text font-semibold text-yellow-600">Title</span>
+                        <span className="label-text font-semibold text-yellow-600">Quick Note</span>
                     </label>
                     <textarea name="note" rows="4" cols="50" className="input input-bordered" placeholder="Quick note" required></textarea>
                 </div>
