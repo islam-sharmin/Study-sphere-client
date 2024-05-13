@@ -18,7 +18,7 @@ const Details = () => {
                         <p><span className="font-bold">Seasonality: </span>{details.marks}</p>
                         <p><span className="font-bold">Travel Time: </span>{details.date}</p>
                         <hr />
-                        <Link to='/takeAssignment'><button className="btn text-black bg-yellow-500 mt-5">Take Assignment</button></Link>
+                        <Link to={`/takeAssignment/${details._id}`}><button className="btn text-black bg-yellow-500 mt-5">Take Assignment</button></Link>
                     </div>
                 </div>
             </div>

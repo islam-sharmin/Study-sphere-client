@@ -100,57 +100,6 @@ const SignUp = () => {
             </div>
             <ToastContainer></ToastContainer>
         </div>
-
-        // <div className='flex items-center justify-center'>
-        //     <div className=''>
-        //         <img src={pic} alt="" className='w-[600px]' />
-        //     </div>
-        //     <div className='md:w-3/4 lg:w-1/2 mt-5'>
-        //         <h2 className="text-3xl text-center font-bold text-yellow-600">Sign Up Here</h2>
-        //         <form className="card-body mx-auto">
-        //             <div className="form-control">
-        //                 <label className="label">
-        //                     <span className="label-text">Name</span>
-        //                 </label>
-        //                 <input type="text" name="name" placeholder="Enter your name" className="input input-bordered" required />
-        //             </div>
-        //             <div className="form-control">
-        //                 <label className="label">
-        //                     <span className="label-text">PhotoURL</span>
-        //                 </label>
-        //                 <input type="text" name="photoURL" placeholder="Enter your photoURL" className="input input-bordered" required />
-        //             </div>
-        //             <div className="form-control">
-        //                 <label className="label">
-        //                     <span className="label-text">Email</span>
-        //                 </label>
-        //                 <input type="email" name="email" placeholder="Enter your email" className="input input-bordered" required />
-        //             </div>
-        //             <div className="form-control">
-        //             <label className="label">
-        //                 <span className="label-text">Password</span>
-        //             </label>
-        //             <div className="relative mb-4">
-        //                 <input
-        //                     className="w-full input input-bordered"
-        //                     type={showPassword ? "text" : "password"}
-        //                     name="password"
-        //                     placeholder="Set your password"
-        //                     id="" required />
-        //                 <span className="absolute top-4 right-2" onClick={() => setShowPassword(!showPassword)}>
-        //                     {
-        //                         showPassword ? <FaEyeSlash></FaEyeSlash> : <FaEye></FaEye>
-        //                     }
-        //                 </span>
-        //             </div>
-        //         </div>
-        //             <div className="form-control mt-6">
-        //                 <button onClick={handleRegister} className="btn bg-yellow-500 text-black">Sign Up</button>
-        //             </div>
-        //         </form>
-        //         <p className="text-center mb-4">Do not have an account. Please <Link className="text-yellow-700 font-bold" to="/login">Login</Link></p>
-        //     </div>
-        // </div>
     );
 };
 

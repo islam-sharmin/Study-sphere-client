@@ -1,11 +1,14 @@
 import { useContext } from "react";
 import { AuthContext } from "../providers/AuthProvider";
 import Swal from "sweetalert2";
+import { useLoaderData } from "react-router-dom";
 
 
 const TakeAssignments = () => {
 
     const {user} = useContext(AuthContext);
+    const assignments = useLoaderData();
+
 
     const handleTask = event => {
         event.preventDefault();
@@ -14,9 +17,13 @@ const TakeAssignments = () => {
         const note = form.note.value;
         const email = user?.email;
         const name = user?.displayName;
+        const title = assignments.title;
+        const marks = assignments.marks;
+        const obtainMarks = '';
+        const feedback = '';
         const status = 'pending';
 
-        const task = {link, note, email, name, status}
+        const task = {link, note, email, name, title, marks, obtainMarks, feedback, status}
         console.log(task);
 
         // send data to the server

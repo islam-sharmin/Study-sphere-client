@@ -9,6 +9,7 @@ import PrivateRoutes from "./PrivateRoutes";
 import Details from "../pages/Details";
 import TakeAssignments from "../pages/TakeAssignments";
 import PendingAssignment from "../pages/PendingAssignment";
+import Update from "../pages/Update";
 
 
 const router = createBrowserRouter([
@@ -42,12 +43,18 @@ const router = createBrowserRouter([
                 element: <Login></Login>
             },
             {
-                path: '/takeAssignment',
-                element: <PrivateRoutes><TakeAssignments></TakeAssignments></PrivateRoutes>
+                path: '/takeAssignment/:id',
+                element: <PrivateRoutes><TakeAssignments></TakeAssignments></PrivateRoutes>,
+                loader: ({params}) => fetch(`http://localhost:5000/assignments/${params.id}`)
             },
             {
                 path: '/pending',
                 element: <PrivateRoutes><PendingAssignment></PendingAssignment></PrivateRoutes>
+            },
+            {
+                path: '/update/:id',
+                element: <Update></Update>,
+                loader: ({params}) => fetch(`http://localhost:5000/assignments/${params.id}`)
             }
         ]
       },

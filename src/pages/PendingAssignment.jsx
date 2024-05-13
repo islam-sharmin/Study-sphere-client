@@ -4,13 +4,6 @@ import { useEffect, useState } from "react";
 const PendingAssignment = () => {
 
     const [pendingAssignments, setPendingAssignments] = useState([]);
-    const [assignments, setAssignments] = useState([]);
-
-    useEffect(() => {
-        fetch('http://localhost:5000/assignments')
-            .then(res => res.json())
-            .then(data => setAssignments(data))
-    }, [])
 
     useEffect(() => {
         fetch('http://localhost:5000/quiz')
@@ -20,25 +13,25 @@ const PendingAssignment = () => {
 
     return (
         <div>
-            <h2>Pending Assignments:{pendingAssignments.length}</h2>
+            <h2 className="mt-8 mb-4 underline text-yellow-600 font-bold text-2xl text-center">Pending Assignments</h2>
             <div className="overflow-x-auto">
                 <table className="table">
                     {/* head */}
                     <thead>
                         <tr>
-                            <th></th>
+                            <th>Title</th>
+                            <th>Marks</th>
                             <th>Name</th>
-                            <th>Job</th>
-                            <th>Favorite Color</th>
+                            <th>Action</th>
                         </tr>
                     </thead>
                     <tbody>
                         {
                             pendingAssignments.map(pendingAssignment => <tr key={pendingAssignment._id}>
-                                <th>{pendingAssignment.title}</th>
-                                <td>{assignments.title}</td>
+                                <td>{pendingAssignment.title}</td>
+                                <td>{pendingAssignment.marks}</td>
                                 <td>{pendingAssignment.name}</td>
-                                <td>Blue</td>
+                                <td className="btn bg-yellow-500 text-black">Give Mark</td>
                             </tr>)
                         }
                     </tbody>

@@ -1,17 +1,22 @@
-import { useContext, useState } from "react";
-import { AuthContext } from "../providers/AuthProvider";
+import { FaRegCalendarAlt } from "react-icons/fa";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
-import { FaRegCalendarAlt } from "react-icons/fa";
+import { useEffect, useState } from "react";
+import { useLoaderData, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 
 
-const CreateAssignment = () => {
+const Update = () => {
 
-    const { user } = useContext(AuthContext);
     const [startDate, setStartDate] = useState(null);
+    const update = useLoaderData();
+    const navigate = useNavigate();
 
-    const handleCreateAssignment = event => {
+    useEffect(() => {
+        setStartDate(update.date);
+    }, [update.date])
+
+    const handleUpdateAssignment = event => {
         event.preventDefault();
 
         const form = event.target;
@@ -21,52 +26,51 @@ const CreateAssignment = () => {
         const marks = form.marks.value;
         const date = form.date.value;
         const photo = form.photo.value;
-        const email = user?.email;
 
-        const newAssignment = { title, description, level, marks, date, photo, email }
-        console.log(newAssignment);
+        const updateAssignment = { title, description, level, marks, date, photo }
+        console.log(updateAssignment);
 
         // send data to the server
-        fetch('http://localhost:5000/assignments', {
-            method: 'POST',
+        fetch(`http://localhost:5000/assignments/${update._id}`, {
+            method: 'PUT',
             headers: {
                 'content-type': 'application/json'
             },
-            body:JSON.stringify(newAssignment)
+            body: JSON.stringify(updateAssignment)
         })
             .then(res => res.json())
             .then(data => {
                 console.log(data);
-                if(data.insertedId){
+                if(data.modifiedCount > 0){
                     Swal.fire({
                         title: 'Success!',
-                        text: 'Assignment Created Successfully',
+                        text: 'Assignment Update Successfully',
                         icon: 'success',
                         confirmButtonText: 'Awesome'
                       })
                 }
+                navigate('/assignments');
             })
-        form.reset();
     }
 
     return (
         <div>
-            <h2 className="mt-8 underline text-yellow-600 font-bold text-2xl text-center">Create Assignment</h2>
+            <h2 className="mt-8 underline text-yellow-600 font-bold text-2xl text-center">Update Assignment</h2>
             <div className="card shrink-0 w-full bg-base-100">
-                <form onSubmit={handleCreateAssignment} className="card-body">
+                <form onSubmit={handleUpdateAssignment} className="card-body">
                     {/* title description */}
                     <div className="form-control flex-1">
                         <label className="label">
                             <span className="label-text font-semibold text-yellow-600">Title</span>
                         </label>
-                        <input name="title" type="text" placeholder="Assignment Title" className="input input-bordered" required />
+                        <input name="title" type="text" defaultValue={update.title} className="input input-bordered" required />
                     </div>
 
                     <div className="form-control flex-1">
                         <label className="label">
                             <span className="label-text font-semibold text-yellow-600">Description</span>
                         </label>
-                        <input name="description" type="text" placeholder="Assignment Description" className="input input-bordered" required />
+                        <input name="description" type="text" defaultValue={update.description} className="input input-bordered" required />
                     </div>
 
 
@@ -77,26 +81,32 @@ const CreateAssignment = () => {
                                 <span className="label-text font-semibold text-yellow-600">Assignment difficulty Level</span>
                             </label>
                             <select name="level" type="text" className="select select-bordered join-item input " required>
-                                <option disabled selected >level</option>
-                                <option>easy</option>
-                                <option>medium</option>
-                                <option>hard</option>
+                                <option disabled selected >{update.level}</option>
+                                <option>Easy</option>
+                                <option>Medium</option>
+                                <option>Hard</option>
                             </select>
                         </div>
                         <div className="form-control flex-1">
                             <label className="label">
                                 <span className="label-text font-semibold text-yellow-600">Marks</span>
                             </label>
-                            <input name="marks" type="text" placeholder="Marks" className="input input-bordered" required />
+                            <input name="marks" type="text" defaultValue={update.marks} className="input input-bordered" required />
                         </div>
                         <div className="form-control flex-1">
                             <label className="label">
                                 <span className="label-text font-semibold text-yellow-600">Due Date</span>
                             </label>
-                            <label className="input input-bordered relative" required>
-                                <DatePicker name="date" selected={startDate} onChange={(date) => setStartDate(date)} />
+                            <label className="input input-bordered relative">
+                                <DatePicker
+                                    name="date"
+                                    selected={startDate}
+                                    onChange={(date) => setStartDate(date)}
+                                    defaultValue={update.date}
+                                    required
+                                />
                                 <span className="absolute top-4 right-2">
-                                <FaRegCalendarAlt />
+                                    <FaRegCalendarAlt />
                                 </span>
                             </label>
                         </div>
@@ -107,11 +117,11 @@ const CreateAssignment = () => {
                         <label className="label">
                             <span className="label-text font-semibold text-yellow-600">Thumbnail Image URL</span>
                         </label>
-                        <input name="photo" type="text" placeholder="Image URL" className="input input-bordered" required />
+                        <input name="photo" type="text" defaultValue={update.photo} className="input input-bordered" required />
                     </div>
 
                     <div className="form-control mt-6">
-                        <input type="submit" className="btn text-black bg-yellow-500" value="CREATE ASSIGNMENT" />
+                        <input type="submit" className="btn text-black bg-yellow-500" value="UPDATE" />
                     </div>
                 </form>
             </div>
@@ -119,4 +129,4 @@ const CreateAssignment = () => {
     );
 };
 
-export default CreateAssignment;
+export default Update;
