@@ -1,3 +1,4 @@
+import { Fade } from 'react-awesome-reveal';
 import faqImg from '../assets/faq.png';
 
 const Faq = () => {
@@ -5,7 +6,9 @@ const Faq = () => {
         <div className='mt-16'>
             <div className='text-center mb-14'>
             <h2 className='text-4xl font-bold text-yellow-600 mb-2'>FAQ</h2>
+            <Fade>
             <p className='text-slate-600'>Have any questions? Here you will find the answer most valued by our partners, along with access to step-by-step instructions and support</p>
+            </Fade>
             </div>
             <div className='flex flex-col md:flex-row gap-5'>
                 <div>
