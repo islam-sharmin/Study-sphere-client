@@ -13,7 +13,7 @@ const SomeAssignments = () => {
     const [assignments, setAssignments] = useState([]);
 
     useEffect(() => {
-        fetch('http://localhost:5000/assignments')
+        fetch('https://study-sphere-server-nine.vercel.app/assignments')
             .then(res => res.json())
             .then(data => setAssignments(data))
     }, [])

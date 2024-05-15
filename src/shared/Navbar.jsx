@@ -34,8 +34,13 @@ const Navbar = () => {
 
         <li><NavLink to='/' className={({ isActive }) => isActive ? 'font-bold text-yellow-500 underline text-base' : 'text-base'}>Home</NavLink></li>
         <li><NavLink to='/assignments' className={({ isActive }) => isActive ? 'font-bold text-yellow-500 underline text-base' : 'text-base'}>Assignments</NavLink></li>
-        <li><NavLink to='/createAssignment' className={({ isActive }) => isActive ? 'font-bold text-yellow-500 underline text-base' : 'text-base'}>Create Assignment</NavLink></li>
-        <li><NavLink to='/pending' className={({ isActive }) => isActive ? 'font-bold text-yellow-500 underline text-base' : 'text-base'}>Pending Assignment</NavLink></li>
+        {
+            user ? <>
+                <li><NavLink to='/createAssignment' className={({ isActive }) => isActive ? 'font-bold text-yellow-500 underline text-base' : 'text-base'}>Create Assignment</NavLink></li>
+                <li><NavLink to='/pending' className={({ isActive }) => isActive ? 'font-bold text-yellow-500 underline text-base' : 'text-base'}>Pending Assignment</NavLink></li>
+            </> : ''
+        }
+
     </>
 
     return (
@@ -69,14 +74,14 @@ const Navbar = () => {
                         <div className="dropdown dropdown-end">
                             <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
                                 <div className="w-10 rounded-full">
-                                <img
-                                    alt="user pic"
-                                    src={user?.photoURL || "https://i.ibb.co/p3d9pYn/user.png"}
-                                />
+                                    <img
+                                        alt="user pic"
+                                        src={user?.photoURL || "https://i.ibb.co/p3d9pYn/user.png"}
+                                    />
                                 </div>
                             </div>
                             <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
-                                <li><Link to='/attemptAssignment'>My Attempted Assignment</Link></li>
+                                <li><Link to='/attemptAssignment'>My Submitted Assignment</Link></li>
                                 <li><Link onClick={handleLogOut}>Log Out</Link></li>
                             </ul>
                         </div>

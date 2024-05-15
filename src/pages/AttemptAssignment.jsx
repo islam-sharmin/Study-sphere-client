@@ -7,7 +7,7 @@ const AttemptAssignment = () => {
     const { user } = useContext(AuthContext);
     const [assignments, setAssignments] = useState([]);
     
-    const url = `http://localhost:5000/quizAttempt?email=${user?.email}`;
+    const url = `https://study-sphere-server-nine.vercel.app/quizAttempt?email=${user?.email}`;
     useEffect(() => {
         fetch(url, {credentials: 'include'})
             .then(res => res.json())

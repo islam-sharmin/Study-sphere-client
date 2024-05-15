@@ -7,7 +7,7 @@ const PendingAssignment = () => {
     const [pendingAssignments, setPendingAssignments] = useState([]);
 
     useEffect(() => {
-        fetch('http://localhost:5000/quiz')
+        fetch('https://study-sphere-server-nine.vercel.app/quiz')
             .then(res => res.json())
             .then(data => setPendingAssignments(data))
     }, [])

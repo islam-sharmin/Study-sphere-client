@@ -28,7 +28,7 @@ const TakeAssignments = () => {
         console.log(task);
 
         // send data to the server
-        fetch('http://localhost:5000/quiz', {
+        fetch('https://study-sphere-server-nine.vercel.app/quiz', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

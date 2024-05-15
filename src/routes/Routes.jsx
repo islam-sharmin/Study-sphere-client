@@ -36,7 +36,7 @@ const router = createBrowserRouter([
             {
                 path: '/details/:id',
                 element: <PrivateRoutes><Details></Details></PrivateRoutes>,
-                loader: ({params}) => fetch(`http://localhost:5000/assignments/${params.id}`)
+                loader: ({params}) => fetch(`https://study-sphere-server-nine.vercel.app/assignments/${params.id}`)
             },
             {
                 path: '/signup',
@@ -49,7 +49,7 @@ const router = createBrowserRouter([
             {
                 path: '/takeAssignment/:id',
                 element: <PrivateRoutes><TakeAssignments></TakeAssignments></PrivateRoutes>,
-                loader: ({params}) => fetch(`http://localhost:5000/assignments/${params.id}`)
+                loader: ({params}) => fetch(`https://study-sphere-server-nine.vercel.app/assignments/${params.id}`)
             },
             {
                 path: '/pending',
@@ -58,7 +58,7 @@ const router = createBrowserRouter([
             {
                 path: '/update/:id',
                 element: <Update></Update>,
-                loader: ({params}) => fetch(`http://localhost:5000/assignments/${params.id}`)
+                loader: ({params}) => fetch(`https://study-sphere-server-nine.vercel.app/assignments/${params.id}`)
             },
             {
                 path: '/attemptAssignment',
@@ -67,7 +67,7 @@ const router = createBrowserRouter([
             {
                 path: '/submittedAssignment/:id',
                 element: <PrivateRoutes><SubmittedAssignment></SubmittedAssignment></PrivateRoutes>,
-                loader: ({params}) => fetch(`http://localhost:5000/quiz/${params.id}`)
+                loader: ({params}) => fetch(`https://study-sphere-server-nine.vercel.app/quiz/${params.id}`)
             }
         ]
       },

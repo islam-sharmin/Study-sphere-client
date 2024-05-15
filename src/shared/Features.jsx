@@ -25,7 +25,7 @@ const Features = () => {
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
                 {/* card 1 */}
-                <div className="card bg-base-100 shadow-lg" data-aos="fade-up-right" data-aos-duration="1000" >
+                <div className="card bg-base-100 shadow-lg" data-aos="fade-up" data-aos-duration="1000" >
                     <figure className="px-10 pt-10">
                         <div className="rounded-full bg-stone-200 p-5">
                             <ImProfile className="text-4xl font-extrabold text-violet-500"></ImProfile>
@@ -50,7 +50,7 @@ const Features = () => {
                     </div>
                 </div>
                 {/* card 3 */}
-                <div className="card bg-base-100 shadow-lg" data-aos="fade-up-left" data-aos-duration="1000" >
+                <div className="card bg-base-100 shadow-lg" data-aos="fade-up" data-aos-duration="1000" >
                     <figure className="px-10 pt-10">
                         <div className="rounded-full bg-stone-200 p-5">
                             <AiOutlineGlobal className="text-4xl font-extrabold text-sky-500"></AiOutlineGlobal>

@@ -21,7 +21,7 @@ const SubmittedAssignment = () => {
         console.log(submitAssignment);
 
         // send data to the server
-        fetch(`http://localhost:5000/quiz/${assignments._id}`, {
+        fetch(`https://study-sphere-server-nine.vercel.app/quiz/${assignments._id}`, {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json'

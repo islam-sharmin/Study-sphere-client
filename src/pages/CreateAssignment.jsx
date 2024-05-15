@@ -27,7 +27,7 @@ const CreateAssignment = () => {
         console.log(newAssignment);
 
         // send data to the server
-        fetch('http://localhost:5000/assignments', {
+        fetch('https://study-sphere-server-nine.vercel.app/assignments', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

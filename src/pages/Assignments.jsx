@@ -11,7 +11,7 @@ const Assignments = () => {
     const [assignments, setAssignments] = useState([]);
 
     const handleSort = (level) => {
-        fetch(`http://localhost:5000/assignmentSort?level=${level}`)
+        fetch(`https://study-sphere-server-nine.vercel.app/assignmentSort?level=${level}`)
             .then(res => res.json())
             .then(data => {
                 setAssignments(data); // Update the assignments state with the sorted data
@@ -24,7 +24,7 @@ const Assignments = () => {
 
 
     useEffect(() => {
-        fetch('http://localhost:5000/assignments')
+        fetch('https://study-sphere-server-nine.vercel.app/assignments')
             .then(res => res.json())
             .then(data => setAssignments(data))
     }, [])
@@ -41,7 +41,7 @@ const Assignments = () => {
         }).then((result) => {
             if (result.isConfirmed) {
                 if (user?.email === creatorEmail) {
-                    fetch(`http://localhost:5000/myList/${id}`, {
+                    fetch(`https://study-sphere-server-nine.vercel.app/myList/${id}`, {
                         method: 'DELETE'
                     })
                         .then(res => res.json())
