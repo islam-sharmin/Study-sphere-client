@@ -12,12 +12,14 @@ import PendingAssignment from "../pages/PendingAssignment";
 import Update from "../pages/Update";
 import AttemptAssignment from "../pages/AttemptAssignment";
 import SubmittedAssignment from "../pages/SubmittedAssignment";
+import ErrorPage from "../pages/ErrorPage";
 
 
 const router = createBrowserRouter([
     {
         path: "/",
         element: <Root></Root>,
+        errorElement: <ErrorPage></ErrorPage>,
         children: [
             {
                 path: '/',
