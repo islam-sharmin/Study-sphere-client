@@ -1,8 +1,14 @@
-# React + Vite
+# Study Sphere 
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Live Link: https://study-sphere-7da13.web.app
 
-Currently, two official plugins are available:
+# Features:
+1. User Accounts and Profiles
+2. Topic based assignment
+3. Security and Privacy
+4. Assignment marking system
+5. Assignment feedback system
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+# assignment_category_0001 (Online Group Study)
+
+

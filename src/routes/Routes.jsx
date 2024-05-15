@@ -57,7 +57,7 @@ const router = createBrowserRouter([
             },
             {
                 path: '/update/:id',
-                element: <Update></Update>,
+                element: <PrivateRoutes><Update></Update></PrivateRoutes>,
                 loader: ({params}) => fetch(`https://study-sphere-server-nine.vercel.app/assignments/${params.id}`)
             },
             {
