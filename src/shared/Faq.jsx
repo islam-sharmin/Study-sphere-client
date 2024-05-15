@@ -2,9 +2,9 @@ import faqImg from '../assets/faq.png';
 
 const Faq = () => {
     return (
-        <div className='mt-14'>
+        <div className='mt-16'>
             <div className='text-center mb-14'>
-            <h2 className='text-4xl font-bold text-yellow-600 mb-2'>FAQs</h2>
+            <h2 className='text-4xl font-bold text-yellow-600 mb-2'>FAQ</h2>
             <p className='text-slate-600'>Have any questions? Here you will find the answer most valued by our partners, along with access to step-by-step instructions and support</p>
             </div>
             <div className='flex flex-col md:flex-row gap-5'>

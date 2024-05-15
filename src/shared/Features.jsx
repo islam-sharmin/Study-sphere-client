@@ -2,9 +2,17 @@ import { Fade } from "react-awesome-reveal";
 import { AiOutlineGlobal } from "react-icons/ai";
 import { GrSecure } from "react-icons/gr";
 import { ImProfile } from "react-icons/im";
+import AOS from 'aos';
+import 'aos/dist/aos.css';
+import { useEffect } from "react";
+
 
 
 const Features = () => {
+
+    useEffect(()=>{
+        AOS.init();
+    }, [])
 
     return (
         <div className="mt-14">
@@ -29,7 +37,7 @@ const Features = () => {
                     </div>
                 </div>
                 {/* card 2 */}
-                <div className="card bg-base-100 shadow-lg" data-aos="fade-up-left" data-aos-duration="1000" >
+                <div className="card bg-base-100 shadow-lg" data-aos="fade-up" data-aos-duration="1000" >
                     <figure className="px-10 pt-10">
 
                         <div className="rounded-full bg-stone-200 p-5">
@@ -42,7 +50,7 @@ const Features = () => {
                     </div>
                 </div>
                 {/* card 3 */}
-                <div className="card bg-base-100 shadow-lg" data-aos="fade-up-right" data-aos-duration="1000" >
+                <div className="card bg-base-100 shadow-lg" data-aos="fade-up-left" data-aos-duration="1000" >
                     <figure className="px-10 pt-10">
                         <div className="rounded-full bg-stone-200 p-5">
                             <AiOutlineGlobal className="text-4xl font-extrabold text-sky-500"></AiOutlineGlobal>

@@ -1,8 +1,14 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
 
 const SomeAssignments = () => {
+
+    useEffect(()=>{
+        AOS.init();
+    }, [])
 
     const [assignments, setAssignments] = useState([]);
 
@@ -17,7 +23,7 @@ const SomeAssignments = () => {
             <div className='text-center mb-14'>
             <h2 className='text-4xl font-bold text-yellow-600 mb-2'>Assignments</h2>
             </div>
-            <div className="grid gap-8 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+            <div className="grid gap-8 grid-cols-1 md:grid-cols-2 lg:grid-cols-3" data-aos="fade-up" data-aos-duration="1000">
                 {
                     assignments?.slice(0, 6).map(assignment => <div key={assignment._id}>
                         <div className="card bg-base-100 shadow-xl">
