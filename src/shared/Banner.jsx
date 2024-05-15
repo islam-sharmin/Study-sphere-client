@@ -4,7 +4,7 @@ import bannerBack from '../assets/bannerBack.jpg'
 const Banner = () => {
     return (
         <div className="hero lg:h-[80vh]">
-            <div className="hero-content flex-col gap-10 md:gap-0 md:flex-row-reverse">
+            <div className="hero-content flex-col-reverse gap-10 md:gap-0 md:flex-row-reverse">
                 <div className='relative'>
                 <img src={bannerImg} className="max-w-sm rounded-lg shadow-2xl z-10" />
                 <img src={bannerBack} className="max-w-sm rounded-lg shadow-2xl absolute left-6 top-36 z-[-20]" />

@@ -1,42 +1,58 @@
-import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Fade } from "react-awesome-reveal";
+import { AiOutlineGlobal } from "react-icons/ai";
+import { GrSecure } from "react-icons/gr";
+import { ImProfile } from "react-icons/im";
 
 
 const Features = () => {
 
-    const [assignments, setAssignments] = useState([]);
-
-    useEffect(() => {
-        fetch('http://localhost:5000/assignments')
-            .then(res => res.json())
-            .then(data => setAssignments(data))
-    }, [])
-
     return (
         <div className="mt-14">
-            <div className='text-center mb-14'>
-            <h2 className='text-4xl font-bold text-yellow-600 mb-2'>Our Features</h2>
+            <div className=" text-center mb-5 ">
+                <h2 className="text-4xl font-bold text-yellow-600 mb-2">Our Feature</h2>
+                <Fade>
+                    <p className=" text-slate-600"> Real-time collaboration, personalized study plans, and interactive resources for effective online learning.</p>
+                </Fade>
             </div>
-            <div className="grid gap-8 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
-                {
-                    assignments?.slice(0, 6).map(assignment => <div key={assignment._id}>
-                        <div className="card bg-base-100 shadow-xl">
-                            <figure className="px-8 pt-8">
-                                <img src={assignment.photo} alt="Shoes" className="rounded-xl h-52 w-full" />
-                            </figure>
-                            <div className="card-body items-center text-center">
-                                <h2 className="card-title">{assignment.title}</h2>
-                                <div className="flex gap-8">
-                                    <p>Marks: {assignment.marks}</p>
-                                    <p>Level: {assignment.level}</p>
-                                </div>
-                                <div className="card-actions gap-4 mt-3">
-                                    <Link to={`/details/${assignment._id}`}><button className="btn btn-success text-white">Details</button></Link>
-                                </div>
-                            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
+                {/* card 1 */}
+                <div className="card bg-base-100 shadow-lg" data-aos="fade-up-right" data-aos-duration="1000" >
+                    <figure className="px-10 pt-10">
+                        <div className="rounded-full bg-stone-200 p-5">
+                            <ImProfile className="text-4xl font-extrabold text-violet-500"></ImProfile>
                         </div>
-                    </div>)
-                }
+                    </figure>
+                    <div className="card-body items-center text-center">
+                        <h2 className="card-title text-xl font-bold">Easily Manage Profile</h2>
+                        <p className="text-lg text-slate-500">User friendly profile that give easy to control</p>
+                    </div>
+                </div>
+                {/* card 2 */}
+                <div className="card bg-base-100 shadow-lg" data-aos="fade-up-left" data-aos-duration="1000" >
+                    <figure className="px-10 pt-10">
+
+                        <div className="rounded-full bg-stone-200 p-5">
+                            <GrSecure className="text-4xl font-extrabold text-lime-500"></GrSecure>
+                        </div>
+                    </figure>
+                    <div className="card-body items-center text-center">
+                        <h2 className="card-title text-xl font-bold">Secure GatWay</h2>
+                        <p className="text-lg text-slate-500">With confidence using our secure options.</p>
+                    </div>
+                </div>
+                {/* card 3 */}
+                <div className="card bg-base-100 shadow-lg" data-aos="fade-up-right" data-aos-duration="1000" >
+                    <figure className="px-10 pt-10">
+                        <div className="rounded-full bg-stone-200 p-5">
+                            <AiOutlineGlobal className="text-4xl font-extrabold text-sky-500"></AiOutlineGlobal>
+                        </div>
+                    </figure>
+                    <div className="card-body items-center text-center">
+                        <h2 className="card-title text-xl font-bold">Global Coverage</h2>
+                        <p className="text-lg text-slate-500"> Explore accommodations worldwide with our extensive database</p>
+                    </div>
+                </div>
             </div>
         </div>
     );

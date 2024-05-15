@@ -6,12 +6,12 @@ const Footer = () => {
     return (
         <div className="mt-14">
             <footer className="footer p-10 bg-base-200 text-base-content">
-                <nav className="space-y-2">
+                <nav className="">
                     <div className="flex items-center">
                     <img src={logo} alt="" className="w-[60px] h-[50px]" />
                     <h6 className="text-2xl text-yellow-600 font-bold">Study Sphere</h6>
                     </div>
-                    <p className="">Explore. Discover. Plan. Book. Travel. Enjoy. Share.</p>
+                    <p className="mb-2">Contact us, privacy policy, terms, and support.</p>
                     <div className="flex gap-5 items-center">
                         <p className="text-2xl"><FaFacebook /></p>
                         <p className="text-2xl"><FaGithub /></p>

@@ -1,4 +1,4 @@
-import { useLoaderData } from "react-router-dom";
+import { useLoaderData, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 
 
@@ -6,6 +6,7 @@ const SubmittedAssignment = () => {
 
     const assignments = useLoaderData();
     console.log(assignments);
+    const navigate = useNavigate();
 
     const handleSubmit = event => {
         event.preventDefault();
@@ -38,7 +39,7 @@ const SubmittedAssignment = () => {
                         confirmButtonText: 'Awesome'
                       })
                 }
-                // navigate('/assignments');
+                navigate('/pending');
             })
     }
 
