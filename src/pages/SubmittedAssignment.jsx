@@ -70,6 +70,7 @@ const SubmittedAssignment = () => {
                         <input name="obtainMarks" type="text" placeholder="give marks" className="input input-bordered" required />
                     </div>
 
+                    {/* giving feedback */}
                     <div className="form-control flex-1">
                         <label className="label">
                             <span className="label-text font-semibold text-yellow-600">Feedback</span>
