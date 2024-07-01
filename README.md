@@ -9,6 +9,9 @@ Live Link: https://study-sphere-7da13.web.app
 4. Assignment marking system
 5. Assignment feedback system
 
-# assignment_category_0001 (Online Group Study)
+## How to run the project:
+1. clone the repository
+2. command 'npm i'
+3. command 'npm run dev'
 
 
